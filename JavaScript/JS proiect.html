@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<title>JavaScript Project</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<style>
+
+body {
+font-family:Verdana, Geneva, sans-serif;
+
+}
+
+#patrat {
+width:150px;
+height:150px;
+background-color:blue;
+display:none;
+position:relative;
+}
+
+.bold {
+font-weight:bold;
+}
+
+</style>
+
+
+
+<body>
+<h1>Testeaza-ti reactiile!</h1>
+<p>Apasa cat de rapid poti pe imagine!</p>
+
+<p class="bold">Timpul tau: <span id="time">0</span>s</p>
+
+<div id="patrat"</div>
+
+<script type="text/javascript">
+
+function randomColor() {
+      var letters='0123456789ABCDEF'.split('');
+	  var color='#';
+	  for (var i=0; i<6; i++ ) {
+	     color += letters[Math.round(Math.random() * 15)];
+		 }
+		 return color;
+	}
+	
+
+var clickedTime; var createdTime; var reactionTime;
+
+function makePatrat() {
+
+var time=Math.random()
+
+time=time*5000;
+
+setTimeout(function() {
+
+if (Math.random()>0.5) {
+document.getElementById("patrat").style.borderRadius="80px";
+} else {
+document.getElementById("patrat").style.borderRadius="0px";
+}
+var top=Math.random();
+top=top*300;
+var left=Math.random();
+left=left*300;
+document.getElementById("patrat").style.left=left+"px";
+document.getElementById("patrat").style.top=top+"px";
+document.getElementById("patrat").style.backgroundColor=randomColor();
+
+document.getElementById("patrat").style.display="block";
+
+createdTime=Date.now();
+
+}, time);
+
+}
+
+
+document.getElementById("patrat").onclick=function(){
+
+clickedTime=Date.now();
+
+reactionTime=(clickedTime-createdTime)/1000;
+
+document.getElementById("time").innerHTML=reactionTime;
+
+this.style.display="none"
+
+makePatrat();
+
+}
+makePatrat();
+
+</script>
+
+</body>
+</html>

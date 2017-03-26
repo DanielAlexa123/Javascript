@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<title>Javascript</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+<button id="textChanger">Change first div text</button>
+<div id="firstDiv">This is some text</div>
+<button id="concatenare">Adauga</button>
+<div id="secDiv">Invatare...</div>
+<button id="textCreator">Lista</button>
+<div id="emptyDiv"></div>
+
+
+<script type="text/javascript">
+document.getElementById("textChanger").onclick=function() {
+document.getElementById("firstDiv").innerHTML="This is  awesome!";
+}
+document.getElementById("concatenare").onclick=function() {
+document.getElementById("secDiv").innerHTML=document.getElementById("secDiv").innerHTML + "javascript";
+}
+document.getElementById("textCreator").onclick=function() {
+document.getElementById("emptyDiv").innerHTML="<ul><li>Rosu</li><li>Verde</li></ul>";
+}
+
+</script>
+</body>
+</html>
